@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simple example of a page consuming the Rudolf tree component</title>
+    <!--React is bundled. Uncomment these if unbundling it.-->
+    <!-- <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script> -->
+    <!-- <style>
+      @font-face {
+        font-family: "Fira Logic";
+        src: url("https://cdn.jsdelivr.net/gh/gleachkr/FiraLogic/dist/FiraLogic-Regular.woff")
+            format("woff"),
+          url("https://cdn.jsdelivr.net/gh/gleachkr/FiraLogic/dist/FiraLogic-Regular.tff")
+            format("tff");
+      }
+    </style> -->
+    <script
+      src="../Rudolf/public/all.js"
+      type="application/javascript"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/truth-tree/dist/lib.js"
+      type="application/javascript"
+    ></script>
+    <!-- Need to import styles -->
+    <link rel="stylesheet" href="https://unpkg.com/truth-tree/dist/lib.css" />
+  </head>
+  <body>
+    <script>
+      // Log the Carnap and Rudolf libraries to make sure they're loaded.
+      console.log({Carnap,Rudolf})
+    </script>
+    <main>
+      <p>This is a simple demo of how we insert the tree widget.</p>
+
+      <p>
+        Suppose we want to set up an exercise for a widget initialized with the
+        initial formula set needed to prove "modus tollens". I'll put a div here
+        which has the id "widget-one", and then in javascript, I'll run this
+        code.
+        <code type>Rudolf.createTree('element-one', "P->Q,~Q,~~P")</code>
+        Notice that the initial formula set is passed in as a string, with
+        commas in between the formulas. The complete code needed to insert an
+        element is, in full:
+      </p>
+      <pre>
+        <code>
+          &lt;div id=&quot;element-one&quot;&gt;Widget one goes here.&lt;/div&gt;
+          &lt;script&gt;
+            &lt;code type&gt;Rudolf.createTree('element-one', &quot;P-&gt;Q,~Q,~~P&quot;)&lt;/code&gt;;
+          &lt;/script&gt;
+        </code>
+      </pre>
+      <p>
+        I'm going to insert that code verbatim in the html document right after the end of this sentence.
+        <div id="element-one">Widget one goes here.</div>
+        <script>
+          Rudolf.createTree('element-one', "P->Q,~Q,~~P")
+        </script>
+      </p>
+      <p>
+        We can do this multiple times on the same page as long as we use a different id each time. Here's <code>&lt;div id=&quot;element-two&quot;&gt;&lt;/div&gt;</code>, with a consistent set of formulas.
+        <div id="element-two">Widget two goes here.</div>
+        <script>
+          Rudolf.createTree('element-two', "F\\/G,~G\\/H,~F,H->G")
+        </script>
+      </p>
+    </main>
+  </body>
+</html>
